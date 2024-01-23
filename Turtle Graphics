@@ -1,0 +1,49 @@
+# Getting used to using others' modules + reading documentation
+from turtle import Turtle, Screen
+import random
+
+timmy = Turtle()
+# Cosmetic stuff :D
+timmy.shape("turtle")
+timmy.color("chartreuse4")
+
+# # Comment out all the code that you don't want to run beforehand.
+# Drawing a square:
+for number in range(1, 5):
+    timmy.forward(100)
+    timmy.right(90)
+
+# Drawing a dashed line:
+for number in range(1, 15):
+    timmy.forward(10)
+    timmy.teleport(x=number*20)
+# Given ans uses pendown() and penup(), but this works too!
+
+# Drawing different shapes (never thought I would use exterior angle of polygon of n sides = (360 degrees)/n from math.)
+colours = ["red", "orange", "yellow", "green", "blue", "indigo", "violet", "black"]
+for number in range (3, 11):
+    timmy.color(colours[number - 3])
+    for sides_no in range(number):
+        timmy.forward(100)
+        timmy.right(360/number)
+
+# Drawing a random walk path (reuses the colours list) (goes on forever)
+colours = ["red", "orange", "yellow", "green", "blue", "indigo", "violet", "black"]
+timmy.width(10)
+timmy.speed("fastest")
+for walk in range(200):
+    random_no = random.randint(1, 4)
+    if random_no == 2:
+        timmy.right(90)
+    elif random_no == 3:
+        timmy.left(90)
+    elif random_no == 4:
+        timmy.right(180)
+    turtle_colour = random.choice(colours)
+    timmy.color(turtle_colour)
+
+    timmy.forward(20)
+
+
+screen = Screen()
+screen.exitonclick()
